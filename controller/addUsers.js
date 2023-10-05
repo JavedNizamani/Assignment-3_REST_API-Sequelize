@@ -1,11 +1,11 @@
-const signUp = require('../model/signUp.model');
+const signUp = require('../model/signUp.model');          //here calling table which created in model folder 
 
-const createUsers = async (req, res)=>{
-    try{
+const createUsers = async (req, res)=>{     // here createUsers function will be exported and be used in routes
+    try{                                    // making effects at routes 
         console.log(req.body);
         const {name, email, password} = req.body;
 
-        await signUp.create({
+        await signUp.create({         // here signUp.create function add values to table created in postgres
             name: name,
             email: email,
             password: password
@@ -16,7 +16,6 @@ const createUsers = async (req, res)=>{
         console.error(error.stack);
     }
 }
-
 module.exports = {
     createUsers
 }
