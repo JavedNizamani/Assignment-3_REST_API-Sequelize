@@ -1,5 +1,7 @@
-const signUp = require('../model/signUp.model');      //here calling table which created in model folder
+// const signUp = require('../model/signUp.model');      //here calling table which created in model folder
 
+var db = require('../utils/db.tables');
+var signUp = db.signUp;
 const updateSignUp = async (req, res)=>{     
     try{                          // updateSignUp function be exported to routes to make effects at routes
         console.log(req.body);
