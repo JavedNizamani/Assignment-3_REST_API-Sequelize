@@ -5,13 +5,17 @@ var signUp = db.signUp;
 const updateSignUp = async (req, res)=>{     
     try{                          // updateSignUp function be exported to routes to make effects at routes
         console.log(req.body);
-        const {id, name, email, password} = req.body;
+        const {firstname, lastname, email, username, password, repeatPassword} = req.body;
 
             await signUp.update(                // here signUp.update get record update in database table
                 {
-                name: name,
+                firstname: firstname,
+                lastname: lastname,
                 email: email,
-                password: password
+                username: username,
+                password: password,
+                repeatPassword: repeatPassword
+
             },
             {
                 where: {
