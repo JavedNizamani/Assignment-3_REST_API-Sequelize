@@ -1,14 +1,17 @@
-const signUp = require('../model/signUp.model');          //here calling table which created in model folder 
-
+var  db = require('../utils/db.tables');
+var signUp = db.signUp;
 const createUsers = async (req, res)=>{     // here createUsers function will be exported and be used in routes
     try{                                    // making effects at routes 
         console.log(req.body);
-        const {name, email, password} = req.body;
+        const {firstname, lastname, email, username, password, repeatPassword} = req.body;
 
         await signUp.create({         // here signUp.create function add values to table created in postgres
-            name: name,
-            email: email,
-            password: password
+           firstname: firstname,
+           lastname: lastname,
+           email: email,
+           username: username,
+           password: password,
+           repeatPassword: repeatPassword
         }).then((result)=>{
             res.status(201).send(result);
         })

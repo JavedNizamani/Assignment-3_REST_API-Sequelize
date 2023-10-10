@@ -28,5 +28,5 @@ module.exports = (sequelize, Sequelize)=>{
         tableName: 'sign-up',
         timestamps: false
     });
+        return signUp;
 }
-
